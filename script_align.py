@@ -10,7 +10,7 @@ import numpy as np
 
 # wild_path = '/home/ubuntu/data/psp/frame/Trump_inthewild/Trump_GoogleScrape2_099.jpg'
 # wild_path = '/home/ubuntu/data/psp/frame/inthewild/00001.png'
-wild_path = '/home/ubuntu/data/psp/frame/Trump_512_wf/Trump_WF_512x512_GettyScrape1_ (3699).jpg'
+wild_path = '/home/ubuntu/data/psp/frame/Trump_512_wf/Trump_GoogleScrape2_099_0.jpg'
 cnn_path = 'mmod_human_face_detector.dat'
 output_size = 1024
 transform_size = 4096
@@ -19,7 +19,8 @@ img = dlib.load_rgb_image(wild_path)
 predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
 
 detector = dlib.get_frontal_face_detector()
-dets = detector(img, 1)[0]
+dets = detector(img, 2)
+dets = dets[0]
 preds = predictor(img, dets)
 
 
